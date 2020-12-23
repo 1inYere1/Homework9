@@ -122,9 +122,37 @@ public class Main {
         System.out.println("Индекс максимального значения: " + indexOfMaximumElement);
     }
 
+    /**
+     * @param src - принимает массив который необходимо отсортировать
+     * @return возвращает отсортированный массив
+     */
+    public static int[] selectiveArraySort(int[] src) {
+        for (int i = 0; i < src.length; i++) {
+            int minimalValue = src[i];
+            int indexOfMinimalValue = i;
+            for (int j = i + 1; j < src.length; j++) {
+                if (src[j] < minimalValue) {
+                    minimalValue = src[j];
+                    indexOfMinimalValue = j;
+                }
+            }
+            int tmp = src[i];
+            src[i] = minimalValue;
+            src[indexOfMinimalValue] = tmp;
+        }
+        return src;
+    }
+
+    static void task4() {
+        int[] array = {16, 23, 5, 61, 8, 97, 13, 3, 44, 18};
+        int[] sortArray = selectiveArraySort(array);
+        System.out.println(Arrays.toString(sortArray));
+    }
+
     public static void main(String[] args) {
         task1();
         task2();
         task3();
+        task4();
     }
 }
