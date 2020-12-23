@@ -78,7 +78,53 @@ public class Main {
         taskList(tasks);
     }
 
+    /**
+     * @param src - принимает заданный массив
+     * @return возвращает значение максимального элемента из массива
+     */
+    static int maximumElementValue(int[] src) {
+        int maximum = src[0];
+        for (int i = 0; i < src.length; i++) {
+            int value = src[i];
+            if (maximum < value) {
+                maximum = value;
+            }
+        }
+        return maximum;
+    }
+
+    static void task2() {
+        int[] array = {16, 23, 5, 61, 8, 97, 13, 3, 44, 18};
+        int maximumValue = maximumElementValue(array);
+        System.out.println("Значение максимального элемента: " + maximumValue);
+    }
+
+    /**
+     * @param src - принимает заданный массив
+     * @return возвращает индекс максимального элемента из массива
+     */
+    static int indexOfMaximumElement(int[] src) {
+        int maximum = src[0];
+        int indexOfMaximum = 0;
+        for (int i = 0; i < src.length; i++) {
+            int value = src[i];
+            if (maximum < value) {
+                maximum = value;
+                indexOfMaximum = i;
+            }
+        }
+        return indexOfMaximum;
+    }
+
+    static void task3() {
+        int[] array = {16, 23, 5, 61, 8, 97, 13, 3, 44, 18};
+        int indexOfMaximumElement = indexOfMaximumElement(array);
+        System.out.println("Индекс максимального значения: " + indexOfMaximumElement);
+    }
+
     public static void main(String[] args) {
         task1();
+        task2();
+        task3();
     }
 }
