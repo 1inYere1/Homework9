@@ -149,10 +149,43 @@ public class Main {
         System.out.println(Arrays.toString(sortArray));
     }
 
+    /**
+     * @param src - принимает заданный массив
+     * @return возвращает новый массив состоящий из четных значений заданного массива
+     */
+    static int[] arrayOfEvenValues(int[] src) {
+        int numberOfEvenValues = 0;
+
+        for (int i = 0; i < src.length; i++) {
+            if (src[i] % 2 == 0) {
+                numberOfEvenValues++;
+            }
+        }
+
+        int[] src2 = new int[numberOfEvenValues];
+        int index = 0;
+        for (int i = 0; i < src.length; i++) {
+            if (src[i] % 2 == 0) {
+                src2[index] = src[i];
+                index++;
+            }
+        }
+        return src2;
+
+    }
+
+    static void task5() {
+        int[] array = {16, 23, 5, 61, 8, 97, 13, 3, 44, 18};
+        int[] arrayOfEvenNumbers = arrayOfEvenValues(array);
+        System.out.println(Arrays.toString(arrayOfEvenNumbers));
+
+    }
+
     public static void main(String[] args) {
         task1();
         task2();
         task3();
         task4();
+        task5();
     }
 }
